@@ -1,0 +1,28 @@
+import random
+n={'Край': 'Света', 'Русский': 'Дух', 'Запретный': 'Плод', 'Красна': 'Девица', 'Лютый': 'Мороз'}
+key_list = []
+for key in n:
+        key_list.append(key)
+print("Подсказка: ")
+t = random.randint(1, 5)
+print(n[key_list[t]])
+count = 0
+count+=2
+if(input() == key_list[t]):
+ count+=1
+ print("Вы угадали!")
+ if count == 1:
+        print("Вы использовали ", count, " попытку.")
+ elif count>= 5:
+        print("Вы использовали ", count, " попыток.")
+ else:
+        print("Вы использовали ", count, " попытки.")
+else:
+    while(input() != key_list[t]):
+        if count >= len(n[key_list[t]]):
+                      print('У вас закончильсь попытки.')
+                      print('Вы проирали.')
+                      break
+        if count <= len(n[key_list[t]]):
+                      count+=1
+                      continue
