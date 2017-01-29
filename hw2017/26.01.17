@@ -1,0 +1,28 @@
+import re
+def open_text():
+    with open ('text.txt', 'r', encoding = 'utf-8') as f:
+        text = f.read()
+    a = text.split()
+    i=0
+    while i < (len(a)-1): 
+        a[i] = a[i].strip('.,/-;:!?()[]%"')
+        a[i] = a[i].lower()
+        i += 1
+    return(a)
+
+def search_words(a):
+    n = []
+    regex = '((за)?программир(у(ем(ый)?|ет(е)?|ю(т)?|я))|ова(ть|нный))'
+    for item in a:
+       m = re.search(regex,item)
+       if m:
+        n.append(item)
+    string = '\n'.join(n)
+    print(n)
+        
+def main():
+    a1 = open_text()
+    a2 = search_words(a1)
+    
+if __name__=='__main__':
+    main()
