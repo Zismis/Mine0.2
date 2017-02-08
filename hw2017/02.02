@@ -1,0 +1,15 @@
+import re
+
+def open_html():
+    with open ('name.html','r', encoding='utf-8') as f:
+        text = f.read()
+    return text
+
+def search_data(text):
+    reg = '<.+?>Преподаватели(?:.|\n)*?([0-9а-яА-Я ()]+)<.+?>'
+    staff = re.findall(reg, text)
+    to_string = ''.join(staff[0])
+    print('В этом университете', to_string, 'преподавателей.')
+
+text = open_html()
+search_data(text)
