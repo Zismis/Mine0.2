@@ -1,0 +1,17 @@
+import re
+
+def open_txt():
+    with open ('Linguistics.txt', 'r', encoding='utf-8') as f:
+        text = f.read()
+    return text
+    close
+
+def word_swap(text):
+    file = re.sub('язык((и|у|е|а(х|м(и)?)?|о(в|м)?)?)[^\w]', "шашлык\\1 ", text)
+    l = re.sub('Язык((и|у|е|а(х|м(и)?)?|о(в|м)?)?)[^\w]', "Шашлык\\1 ", file)
+    file = open('Shashlistics.txt', 'w', encoding='utf-8')
+    file.write(m)
+    file.close()
+
+text = open_txt()
+word_swap(text)
